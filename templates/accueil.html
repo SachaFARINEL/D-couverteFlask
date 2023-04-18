@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}Accueil - {{ super() }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Comptabilité pour les camions</h1>
+        <p class="lead">
+          Chez ComptaTruck, nous offrons des services de comptabilité professionnels pour les propriétaires et les entreprises de camions. Nous avons une équipe d'experts comptables qui comprennent les besoins et les défis uniques de l'industrie des camions et qui sont déterminés à aider nos clients à réussir.
+        </p>
+        <p>
+          Que vous ayez besoin d'aide pour la tenue de livres, la gestion de trésorerie ou la préparation de déclarations de revenus, nous sommes là pour vous aider. Nous offrons des services personnalisés qui répondent à vos besoins spécifiques, avec une attention particulière portée à l'efficacité et à l'exactitude.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img src="static/truck.jpg" alt="Camion" class="img-fluid">
+      </div>
+    </div>
+  </div>
+{% endblock %}

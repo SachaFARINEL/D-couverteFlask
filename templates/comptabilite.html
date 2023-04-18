@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}Comptabilité - {{ super() }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <a href="{{ url_for('addFacture') }}" class="btn btn-primary mb-3">Ajouter une facture</a>
+                {% if factures %}
+                    <h1 class="mb-3">Factures</h1>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Numéro facture</th>
+                            <th scope="col">Libellé facture</th>
+                            <th scope="col">Nom fournisseur</th>
+                            <th scope="col">Montant facture HT</th>
+                            <th scope="col">Montant facture TTC</th>
+                            <th scope="col">Date acquittement</th>
+                            <th scope="col">Facture (PDF)</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for facture in factures %}
+                            <tr>
+                                <td>{{ facture.id }}</td>
+                                <td>{{ facture.libelle }}</td>
+                                <td>{{ facture.nom_fournisseur }}</td>
+                                <td>{{ facture.montant_facture_ht }}</td>
+                                <td>{{ facture.montant_facture_ttc }}</td>
+                                <td>{{ facture.date_acquittement }}</td>
+                                <td><a href="{{ url_for('download_facture', filename=facture.facture_pdf) }}">
+                                    Télécharger le PDF</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>Aucune facture n'a été enregistrée pour le moment.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
